@@ -451,6 +451,7 @@
             
             var value = active_popover.tip.querySelector("#translation").value;
             if (active_trigger.innerText == value){
+                active_popover.hide();
                 goNext()
             }else{
                 admin.ajax.post(active_trigger.dataset.url, {
@@ -476,10 +477,12 @@
         }
 
         function goNext(){
-            var next = active_trigger.closest('tr').nextElementSibling.querySelector('.editable.locale-'+active_trigger.dataset.locale);                    
-            setTimeout(function() {
-                next.click()
-            }, 300);
+            var next = active_trigger.closest('tr')?.nextElementSibling?.querySelector('.editable.locale-'+active_trigger.dataset.locale);
+            if (next){
+                setTimeout(function() {
+                    next.click()
+                }, 300);
+            }
         }
 
         document.querySelectorAll("a.delete-key").forEach(el => {
