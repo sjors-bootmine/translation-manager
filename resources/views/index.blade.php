@@ -554,12 +554,12 @@
         })       
 
         // cookies for auto translation
-        document.querySelector("#base-locale").addEventListener('change', function (event) {            
+        document.querySelector("#base-locale")?.addEventListener('change', function (event) {            
             setCookie('base_locale', event.target.value);
         })
 
         if (getCookie('base_locale')){
-            document.querySelector("#base-locale option[value="+getCookie('base_locale')+"]").setAttribute('selected','selected');
+            document.querySelector("#base-locale option[value="+getCookie('base_locale')+"]")?.setAttribute('selected','selected');
         }
 
     </script>
