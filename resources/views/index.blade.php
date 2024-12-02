@@ -446,7 +446,7 @@
             })
             popovers.push(popover);           
         })
-
+        
         function saveLocale(){    
             
             var value = active_popover.tip.querySelector("#translation").value;
@@ -458,9 +458,11 @@
                     pk: active_trigger.dataset.pk,
                     value: value,
                 }, function(result){
+                    
                     if (result.data.status == "ok"){                    
                         active_trigger.innerText = value
                         active_trigger.classList.remove('status-0')
+                        active_trigger.classList.remove('empty')
                         active_trigger.classList.add('status-1');
                         active_popover.hide();
                         goNext();                    
